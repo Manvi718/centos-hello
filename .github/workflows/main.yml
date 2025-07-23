@@ -28,5 +28,4 @@ jobs:
         template: ./template.json  # Path to your ARM template
         parameters: ./parameters.json  # Path to your parameters file
 
-     # Step 4: Output containerName variable from template     
-     - run: echo ${{ steps.deploy.outputs.containerName }}
+  
