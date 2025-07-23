@@ -1,11 +1,12 @@
 - name: Deployment
-  uses: azure/bicep-deploy@v2
+  
+uses: azure/bicep-deploy@v2
   with:
     type: deployment
     operation: create
     name: Development
     scope: resourceGroup
-    subscription-id: 00000000-0000-0000-0000-000000000000
-    resource-group-name: example
-    template-file: ./src/main.bicep
-    parameters-file: ./src/parameters.json
+    subscription-id: a78cd544-02bc-40bf-90f7-52a862ca143c
+    resource-group-name: ManviRG
+    template-file: ./main.bicep
+    parameters-file: ./parameters1.json
