@@ -9,4 +9,4 @@ uses: azure/bicep-deploy@v2
     subscription-id: a78cd544-02bc-40bf-90f7-52a862ca143c
     resource-group-name: ManviRG
     template-file: ./main.bicep
-    parameters-file: ./parameters1.json
+    parameters-file: ./parameters.json
