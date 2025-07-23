@@ -1,0 +1,33 @@
+name: Deploy ARM Templates to Azure
+ 
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+ 
+jobs:
+  deploy-to-azure:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@main
+ 
+    # Step 2: Log in to Azure using a Service Principal
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+ 
+    # Step 3: Deploy the ARM template
+    - name: Deploy ARM Template
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        resourceGroupName: ManviRG  # Replace with your resource group name
+        template: ./template.json  # Path to your ARM template
+        parameters: ./parameters.json  # Path to your parameters file
+
+     # Step 4: Output containerName variable from template     
+     - run: echo ${{ steps.deploy.outputs.containerName }}
