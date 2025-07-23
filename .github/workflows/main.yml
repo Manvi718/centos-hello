@@ -1,5 +1,5 @@
 name: Deploy ARM Templates to Azure
- 
+
 on:
   push:
     branches:
@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
- 
     steps:
     # Step 1: Checkout the repository
     - name: Checkout code
